@@ -1,5 +1,7 @@
 package personnages;
 
+import java.util.Iterator;
+
 public class Romain {
 	private String nom;
 	private int force;
@@ -41,41 +43,21 @@ public class Romain {
 	public void sEquiper(Equipement equip) {
 		switch (nbEquipement) {
 		
-		case 0:
-			if (equip == Equipement.CASQUE) {
-				equipements[0] = Equipement.CASQUE;
-				System.out.println("Le soldat " + nom + " s’équipe avec un casque.");
-			} else {
-				equipements[1] = Equipement.BOUCLIER;
-				System.out.println("Le soldat " + nom + " s'équipe avec un bouclier.");
-
-			}
+		case 0: 
+			equipements[0] = equip;
+			System.out.println("Le soldat " + nom + " s'équipe avec un " + equip + ".");
 			nbEquipement += 1;
-			break;
 			
 		case 1:
-			if (equip == Equipement.CASQUE) {
-				if (equipements[0] == Equipement.CASQUE) {
-					System.out.println("Le soldat " + nom + " possède déjà un casque !");
-				}
-				else {
-					equipements[0] = Equipement.CASQUE;
-					System.out.println("Le soldat " + nom + " s'équipe d'un casque. ");
-					nbEquipement += 1;
-				}
+			if (equip == equipements[0]) {
+				System.out.println("Le soldat " + nom + " possède déjà un " + equipements[0] + ". ");
+				break;
 			}
-			
-			else if (equip == Equipement.BOUCLIER) {
-				if (equipements[1] == Equipement.BOUCLIER) {
-					System.out.println("Le soldat " + nom + " possède déjà un bouclier !");
-				}
-				else {
-					equipements[1] = Equipement.BOUCLIER;
-					System.out.println("Le soldat " + nom + " s'équipe avec un bouclier. ");
-					nbEquipement += 1;
-				}
+			else {
+				equipements[1] = equip;
+				System.out.println("Le soldat " + nom + " s'équipe avec un " + equip + ". ");
+				nbEquipement ++;
 			}
-			break;
 			
 		case 2:
 			System.out.println("Le soldat " + nom + " est déjà bien protégé !");
@@ -95,8 +77,6 @@ public class Romain {
 //		minus.recevoirCoup(8);
 		
 		minus.sEquiper(Equipement.CASQUE);
-		minus.sEquiper(Equipement.CASQUE);
-		minus.sEquiper(Equipement.BOUCLIER);
 		minus.sEquiper(Equipement.BOUCLIER);
 		
 		
