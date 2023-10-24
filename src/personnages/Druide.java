@@ -35,6 +35,7 @@ public class Druide {
 		} else {
 			parler("Je n'ai pas trouvé tous les ingédients, ma potion est seulement de force " + forcePotion + ".");
 		}
+		this.forcePotion = forcePotion;
 		return forcePotion;
 	}
 	
@@ -42,7 +43,7 @@ public class Druide {
 		if (gaulois.getNom() == "Obélix") {
 			parler("Non, Obélix !... Tu n'auras pas de potion magique !");
 		} else {
-		gaulois.boirePotion(forcePotion);
+			gaulois.boirePotion(forcePotion);
 		}
 	}
 	
